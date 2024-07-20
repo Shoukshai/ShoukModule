@@ -11,7 +11,7 @@ let bossIsDeadRegexed = " ";
 const bossAliveRegex = /§eSlay the boss!§r./gm;
 const crimsonActionBarRegex = /(§6(§l)?[0-9]+ᝐ)(§r)?./gm;
 
-let timer = -20;
+let timer = -20; // -20 because it start counting based on scoreboard, the spawn animation take too long...
 
 register("actionBar", (text) => {
     crimsonResult = text.match(crimsonActionBarRegex);
@@ -33,7 +33,6 @@ register("chat", (message, event) => {
         ChatLib.chat("Boss took: "+timer*0.05+"s");
         timer = -20;
     }
-    // ChatLib.chat(bossIsDeadRegexed);
 }).setCriteria("${message}") 
 
 register("tick", () => {
