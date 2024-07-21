@@ -2,6 +2,6 @@
     "name": "ShoukModule",
     "creator": "Shouk",
     "description": "Shitcoded shouk module for 1.21",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "entry": "index.js"
   }
