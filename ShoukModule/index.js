@@ -30,7 +30,7 @@ register("chat", (message, event) => {
     bossIsDead = message.removeFormatting();
     bossIsDeadRegexed = bossIsDead.match(/SLAYER QUEST COMPLETE|SLAYER QUEST FAILED/);
     if (bossIsDeadRegexed != null) {
-        ChatLib.chat("Boss took: "+timer*0.05+"s");
+        ChatLib.chat("Boss took: "+(timer*0.05).toFixed(2)+"s");
         timer = -20;
     }
 }).setCriteria("${message}") 
