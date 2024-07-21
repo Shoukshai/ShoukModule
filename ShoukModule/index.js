@@ -1,6 +1,8 @@
 const height = Renderer.screen.getHeight();
 const width = Renderer.screen.getWidth();
 
+const placeholder = "&d&l[ShoukModule] &f-> "
+
 let bossResultSc = " ";
 let crimsonResult = " ";
 let crimsonResultJoin = " ";
@@ -11,7 +13,7 @@ let bossIsDeadRegexed = " ";
 const bossAliveRegex = /§eSlay the boss!§r./gm;
 const crimsonActionBarRegex = /(§6(§l)?[0-9]+ᝐ)(§r)?./gm;
 
-let timer = -20; // -20 because it start counting based on scoreboard, the spawn animation take too long...
+let timer = -20;
 
 register("actionBar", (text) => {
     crimsonResult = text.match(crimsonActionBarRegex);
@@ -30,7 +32,7 @@ register("chat", (message, event) => {
     bossIsDead = message.removeFormatting();
     bossIsDeadRegexed = bossIsDead.match(/SLAYER QUEST COMPLETE|SLAYER QUEST FAILED/);
     if (bossIsDeadRegexed != null) {
-        ChatLib.chat("Boss took: "+(timer*0.05).toFixed(2)+"s");
+        ChatLib.chat(placeholder+"Boss took: "+(timer*0.05).toFixed(2)+"s");
         timer = -20;
     }
 }).setCriteria("${message}") 
